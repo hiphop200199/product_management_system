@@ -1,6 +1,4 @@
 <?php include "./parts/head.php"; ?>
-<body>
 
-   
-</body>
-</html>
+      
+  <?php include './parts/foot.php'; ?>

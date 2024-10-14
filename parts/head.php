@@ -9,3 +9,5 @@
     <script defer src="script.js"></script>
     <title>Product Management System</title>
 </head>
+<body>
+    <div id="box">
