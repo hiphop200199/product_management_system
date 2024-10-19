@@ -1,8 +1,8 @@
 <?php include "./parts/head.php"; ?>
 
 <div id="image-box">
-      <span><img src="./assets/new-product.png" alt=""></span>
-      <span><img src="./assets/online-shopping.png" alt=""></span>   
+      <span><img src="./assets/new-product(1).png" alt=""></span>
+      <span><img src="./assets/shopping-list(1).png" alt=""></span>   
     </div>
       <section id="navigate-links">
         <button id="prev"><</button>
