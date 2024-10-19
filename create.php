@@ -1,26 +1,29 @@
 <?php include "./parts/head.php"; ?>
 
+   <div id="detail-box">
+   <img src="./assets/blue.png" alt="image" />
    
-    <img src="./assets/magazine.jpg" alt="" />
     <section id="info" >
-      <h1 id="title"></h1>
-      <p>作者:</p>
-      <p>出版社:</p>
-      <p>出版日期:</p>
-      <p>語言:</p>
-      <p>主題:</p>
-      <p>
-        庫存數量:<span id="stock"></span>
-      </p>
-      <p>價格:$元</p>
+      <label>圖片：<input type="file" name="" id="" ></label>
+      <label>商品名稱：<input type="text"value=" ipsum." /></label>
+      <label>作者:<input type="text"value="lorem" /></label>
+      <label>出版社:<input type="text"value="lorem" /></label>
+      <label>出版日期:<input type="date"  value="1999/11/2"  /></label>
+      <label>語言:<input type="text"value="english" /></label>
+      <label>主題:<input type="text"value="tech" /></label>
+      <label>
+        庫存數量:<input type="number" value="2" />
+      </label>
+      <label>價格:$<input type="number" value="500" />元</label>
       <section id="buttons">
-        <button >直接購買</button>
-        <button >加入購物車</button>
+        <button >新增</button>
       </section>
       <p>
        
       </p>
     </section>
+   </div>
+   
  
       
   <?php include './parts/foot.php'; ?>

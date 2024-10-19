@@ -1,11 +1,12 @@
 @mixin inputAndButton() {
     text-decoration: none;
-        background: none;
+        background: white;
         border: 1px solid var(--dark);
         box-shadow: 0px 2px 1px 1px var(--dark);
         color: var(--dark);
         font-weight: 700;      
         cursor: pointer;       
+        outline: none;
         padding: 5px;
         margin: 5px;
   }

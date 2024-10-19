@@ -1,18 +1,17 @@
+@use "./mixin.scss";
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  overflow-x: clip;
+  //overflow-x: clip;
   --dark: #050c9c;
   --middle: #3572ef;
   --light: #3abef9;
   --white: #a7e6ff;
   font-family: "Ubuntu", sans-serif;
 }
-
-@use './mixin.scss';
 
 #box {
   position: relative;
@@ -31,20 +30,153 @@
       to bottom,
       var(--dark),
       var(--light) 60%,
-     white
+      white
     );
     clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
     z-index: -1;
+  }
+  #output {
+    position: absolute;
+    right: 0;
+    top: 0;
+    button {
+      @include mixin.inputAndButton();
+      font-size: 2rem;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px 5px var(--white);
+    font-size: 2rem;
+    accent-color: var(--dark);
+    tbody {
+      background-color: white;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    tr {
+      box-shadow: 0px 2px 3px 1px var(--white);
+
+      &:last-of-type {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+    th {
+      background-color: var(--white);
+      color: var(--dark);
+      &:first-of-type {
+        border-top-left-radius: 8px;
+      }
+      &:last-of-type {
+        border-top-right-radius: 8px;
+      }
+    }
+    //  td{
+    //   background-color: white;
+    //  }
+    th,
+    td {
+      padding: 3px 8px;
+      text-align: center;
+    }
+  }
+  .pagination {
+    font-size: 2rem;
+    color: var(--dark);
+  }
+  #detail-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 6rem;
+    * {
+      margin-block: 5px;
+      margin-inline: 5px;
+    }
+    img {
+      width: clamp(450px, 50%, 550px);
+      height: 60dvh;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0px 5px 10px 5px var(--white);
+    }
+    #info {
+      width: clamp(400px, 45%, 500px);
+      display: flex;
+      flex-direction: column;
+
+      label,
+      label input {
+        font-size: 1.5rem;
+      }
+      label input {
+        width: 10ch;
+      }
+      label input[type="file"] {
+        width: 8.5ch;
+      }
+      label input[type="number"] {
+        width: 8ch;
+      }
+      #buttons {
+        button {
+          @include mixin.inputAndButton();
+          font-size: 1.5rem;
+          &:disabled {
+            cursor: not-allowed;
+            background-color: grey;
+          }
+        }
+      }
+    }
+  }
+  #image-box {
+    transform-style: preserve-3d;
+    perspective: 1000px;   
+    transition: 0.3s;
+    span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 150px;
+
+      transform-style: preserve-3d;
+      transform-origin: center;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  #navigate-links{
+    button{
+      @include mixin.inputAndButton();
+      font-size: 2rem;
+    }
+    a{
+      font-size: 2rem;
+      text-decoration: none;
+      color: var(--dark);
+    }
   }
   #title {
     position: absolute;
     left: 1rem;
     top: 2.5rem;
-    font-size: clamp(2.8rem,6vw,8rem);
+    font-size: clamp(2.8rem, 6vw, 8rem);
     color: white;
   }
-  #search-bar{
+  #search-bar {
     @include mixin.inputAndButton();
+    font-size: 2rem;
+    &:focus {
+      border-color: var(--light);
+      box-shadow: 0px 2px 1px 1px var(--light);
+    }
   }
   #form {
     display: flex;
@@ -58,14 +190,9 @@
     box-shadow: 0px 2px 1px 1px var(--dark);
     background: white;
     input {
-      padding: 5px;
-      outline: none;
-      border: 1px solid var(--dark);
-      box-shadow: 0px 2px 1px 1px var(--dark);
+      @include mixin.inputAndButton();
       font-size: 2rem;
-      margin-block: 5px;
-      color: var(--dark);
-      &:focus{
+      &:focus {
         border-color: var(--light);
         box-shadow: 0px 2px 1px 1px var(--light);
       }
@@ -76,26 +203,20 @@
       a {
         @include mixin.inputAndButton();
         font-size: 2rem;
-       
-    
-       
       }
     }
-    a{
+    a {
       text-decoration: none;
-        background: none;     
-        color: var(--dark);
+      background: none;
+      color: var(--dark);
     }
-    #message{
+    #message {
       font-weight: 700;
       color: var(--dark);
       font-size: 1.5rem;
     }
   }
-  img {
-    width: clamp(450px, 50%, 550px);
-    height: 60dvh;
-  }
+
   #circle {
     position: absolute;
     right: 2rem;
@@ -108,21 +229,52 @@
 }
 @media screen and (max-width: 576px) {
   #box {
-    &::after{
-        width: 100%;
-        height: 20.5rem;
-    }
-    #title{      
-        left: calc(50% - 130.24px);
-        top: 8rem;
-        font-size: 2.5rem;
-        background-image: linear-gradient(to right, white 125px, var(--dark) 125px);      
-        background-clip: text;
-        color: transparent;
-    }
-    img {
+    &::after {
       width: 100%;
-      height: auto;
+      height: 20.5rem;
+    }
+    #title {
+      left: calc(50% - 130.24px);
+      top: 8rem;
+      font-size: 2.5rem;
+      background-image: linear-gradient(
+        to right,
+        white 125px,
+        var(--dark) 125px
+      );
+      background-clip: text;
+      color: transparent;
+    }
+    #detail-box {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0.5rem;
+      * {
+        margin-inline: 0px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+      #info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    #search-bar {
+      font-size: 1.5rem;
+    }
+    table {
+      font-size: 1.5rem;
+    }
+    #output {
+      button {
+        font-size: 1.5rem;
+      }
+    }
+    .pagination {
+      font-size: 1.5rem;
     }
     #form {
       width: 20rem;
@@ -141,7 +293,7 @@
           font-size: 1.2rem;
         }
       }
-      #message{
+      #message {
         font-size: 1.1rem;
       }
     }
@@ -149,11 +301,74 @@
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
-  #box {  
-    img {
-      width: 100%;
-      height: auto;
+  #box {
+    #detail-box {
+      flex-direction: column;
+      padding: 10px 1rem;
+      * {
+        margin-inline: 0px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+      #info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
     }
-  
+    #search-bar {
+      font-size: 1.5rem;
+    }
+    table {
+      font-size: 1.5rem;
+    }
+    #output {
+      button {
+        font-size: 1.5rem;
+      }
+    }
+    .pagination {
+      font-size: 1.5rem;
+    }
   }
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #box {
+    #detail-box {
+      padding: 10px 1.5rem;
+    }
+    #search-bar {
+      font-size: 1.5rem;
+    }
+    table {
+      font-size: 1.5rem;
+    }
+    #output {
+      button {
+        font-size: 1.5rem;
+      }
+    }
+    .pagination {
+      font-size: 1.5rem;
+    }
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1440px) {
+  #box {
+    #detail-box {
+      padding: 10px 3rem;
+    }
+  }
+}
+
+@for $i from 1 through 2 {
+  #box #image-box span:nth-of-type(#{$i}) {
+    transform: translate(-50%, -50%)
+      rotateY($i * 180deg)
+      translateZ(250px)
+      rotateX(-15deg);
+  }
+}
+
