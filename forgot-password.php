@@ -1,6 +1,6 @@
 <?php include "./parts/head.php"; ?>
 <h1 id="title">Management.</h1>
-        <form id="form" action="/auth.php" method="post">
+        <form id="form" action="auth.php" method="post">
             <input type="email" name="account" id="" placeholder="email..." required>
             <input type="hidden" name="type" value="forgot-password">
             <p id="message"></p>

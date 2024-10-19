@@ -44,6 +44,13 @@ $(function() { //ready function
 
     $("#next").on("click",()=>animate('next'));
 
+    /* $("input[name='password_confirmation']").on('change',function(){
+        let password = $("input[name='password']").val(); //取得input欄位的值
+        let password_confirmation = this.val();
+        if(password !== password_confirmation){
+            $('#message').text('密碼不一致');
+        }
+    }) */
     function animate(dir){
         dir === 'prev'?   degree-=180:degree+=180;
         if($('#navigate-link').text()==='商品清單'){ //檢查文字

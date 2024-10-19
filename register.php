@@ -1,9 +1,8 @@
 <?php include "./parts/head.php"; ?>
 <h1 id="title">Management.</h1>
-        <form id="form" action="/auth.php" method="post">
+        <form id="form" action="auth.php" method="post">
             <input type="email" name="account" id="" placeholder="email..." required>
-            <input type="password" name="password" id="" placeholder="password..." required>
-            <input type="password" name="password_confirmation" id="" placeholder="password confirm..." required>
+            <input type="password" name="password" id="" placeholder="password..." pattern="[A-Z]{1,}[a-z]{1,}[0-9]{1,}\W{1,}" minlength="8" title="須結合大小寫英文字母及數字以及特殊符號至少一個" required>
             <input type="hidden" name="type" value="register">
             <p id="message"></p>
             <section>
